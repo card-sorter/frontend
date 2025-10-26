@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layouts'
+import OverviewPage from './pages/OverviewPage'
+import CurrentCardPage from './pages/CurrentCard'
+import CardListPage from './pages/CardList'
+import TerminalPage from './pages/Terminal'
+import SettingsPage from './pages/Settings'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <Layout>
+            <Routes>
+                <Route path="/" element={<OverviewPage />} />
+                <Route path="/card" element={<CurrentCardPage />} />
+                <Route path="/list" element={<CardListPage />} />
+                <Route path="/terminal" element={<TerminalPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+                <Route path="*" element={<div className="p-4 text-zinc-300">Page not found</div>} />
+            </Routes>
+        </Layout>
+    )
 }
-
-export default App;
